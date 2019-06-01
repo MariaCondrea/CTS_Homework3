@@ -35,3 +35,17 @@ The classes are not modified at all; they interact with the intermediary layer, 
 *Flyweight*, because it can be used to store shared aspects of the playable characters and NPCs (zombie toys), like their models, textures, animations, separately from the individual aspects, like their position, health in a transparent way. 
 
 This way, the memory occupied by objects is reduced by sharing them between clients or their status between other objects of the same type. However, the effects are only visible for solutions where the number of objects is large, which can’t really be the case for Zombie Toys.
+
+## Behavioral Design Patterns
+
+*State pattern*, which implements a state machine in an object-oriented way. With this pattern, a state machine is implemented by implementing each individual state as a derived class of the state pattern interface and implementing state transitions by invoking methods defined by the pattern’s superclass.
+
+In the case of Zombie Toys, the pattern is used to store the players’ and toys’ several states, in essence, attacking, walking, and fleeing. Each can have its own update method and whatever other data it needs, like storing which character is attacking or running from, the area it is wandering.
+
+*Observer*, in which an object called subject, maintains a list of its dependents, the observers, and notifies them automatically of any state changes, usually by calling one of their methods. This employs the integrated concept in the Model View Controller.
+
+The usage of the pattern in this game has the renderable representation of a character listen to events from the logical representations, in order to change the visual presentation when necessary, without the game logic needing to know anything about rendering the code. This MVC is represented by the game manager, that observes each of the player and their interactions with the zombie toys and allies.
+
+*Template method* defines the skeleton of how a certain algorithm could be performed, but defers the implementation of those steps in the children classes.
+
+In the case of Zombie Toys, template sets up the generic combat routine of the players/zombies, with various functions to handle each step, like calculating the hit chance, resolve hit or miss, compute the damage and each of the type of attack skill will implement the methods in their own specific way, like Frost Attack freezing the zombies and leaving them vulnerable to shots.
