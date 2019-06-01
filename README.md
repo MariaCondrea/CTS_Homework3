@@ -21,3 +21,17 @@ An interface containing several parts of the player object is created, and then 
 *Prototype*, used for storing a generic player character with initial properties and creating player instances by cloning it – instances that are the players in the game, the boy or the girl. The time to create a player that is usually a costly object when it comes to creation time and memory occupied that has a long life.
 
 It is advantageous to clone the objects each time you need time in order to avoid explicitly using the constructor’s call, it can create a collection of prototypes that can be used to generate new objects, like boy/girl players. One setback this design pattern is creating objects sharing the same resources, which is a shallow copy.
+
+## Structural Design Patterns
+
+*Decorator*, which can be used to dynamically change the behavior of an object at run time by wrapping them in an object of a decorator class. The special remote control toy used by the player is a case in which the decorator is handy. The remote control toy has behaviors attached to it during the gameplay, as the player switches between the attacks.
+
+It is an advantage to use this pattern as the decoration is transparent to the user because the class that manages the remote toy inherits the specific interface that decorates with the behaviors of the attacks.
+
+*Façade*, as it can create an intermediary layer between all the classes related to the player and monster behavior in the form of a game manager class. This way, the façade provides a simplified interface to a complex system. 
+
+The classes are not modified at all; they interact with the intermediary layer, which allows a better management of the classes in order to use methods from multiple interfaces. A disadvantage of this pattern is that it increases the number of existent classes and complexity of the existent code and it can negatively affect the game’s performance.
+
+*Flyweight*, because it can be used to store shared aspects of the playable characters and NPCs (zombie toys), like their models, textures, animations, separately from the individual aspects, like their position, health in a transparent way. 
+
+This way, the memory occupied by objects is reduced by sharing them between clients or their status between other objects of the same type. However, the effects are only visible for solutions where the number of objects is large, which can’t really be the case for Zombie Toys.
